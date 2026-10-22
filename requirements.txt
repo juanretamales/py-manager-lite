@@ -1,0 +1,10 @@
+flet>=1.0.0
+flet-desktop>=1.0.0
+flet-cli>=1.0.0
+sqlalchemy>=2.0.0
+libsql-client>=0.3.0
+cryptography>=42.0.0
+pypdf>=5.0.0
+pyinstaller>=6.0.0
+
+
