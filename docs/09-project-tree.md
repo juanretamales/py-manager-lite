@@ -72,7 +72,6 @@ py-manager-lite/
 │   │   ├── auth_view.py        # Pantalla de registro de perfil inicial y desbloqueo por PIN/contraseña
 │   │   ├── clients_view.py     # Gestión de cartera de clientes (listado, filtros, modales)
 │   │   ├── company_view.py     # Vista de perfil corporativo y Business Canvas interactivo
-│   │   ├── dashboard_view.py   # Métricas globales, gráficos/KPIs y accesos rápidos
 │   │   ├── exports_view.py     # Panel de exportación contable, selector de períodos y reportes ejecutivos
 │   │   ├── finances_view.py    # Módulo financiero: facturas (emitidas/recibidas), pagos, OC y NC
 │   │   ├── projects_view.py    # Gestión de proyectos, facturas asociadas y seguimiento
@@ -82,7 +81,7 @@ py-manager-lite/
 │   ├── constant.py             # Design System centralizado: paleta de colores, fuentes y estilos
 │   └── main.py                 # Punto de entrada de Flet, compuerta de login y enrutador
 │
-├── tmp/                        # Directorio temporal de trabajo y portabilidad
+├── tmp/                        # [Ignorado en Git] Directorio temporal local y portabilidad
 │   └── profile/                # Perfil activo, credenciales PBKDF2 y BD Turso/LibSQL
 │       ├── ai_config.json      # Configuración de proveedor LLM (Gemini/OpenRouter), API Key y casos de uso
 │       ├── backups_safety/     # Respaldos de seguridad automáticos preventivos antes de restauraciones
@@ -90,16 +89,10 @@ py-manager-lite/
 │       ├── profile.json        # Credenciales de usuario y token de Turso Cloud cifrado (AES-256-GCM)
 │       └── turso_manager.db    # Base de datos Turso / LibSQL local basada en archivos
 │
-├── data/                       # Almacén de base de datos SQLite local (manager.db)
-├── documents/                  # Repositorio de documentos subidos (facturas, OC, cotizaciones, backups)
+├── data/                       # [Ignorado en Git] Almacén de base de datos SQLite local (app.db)
+├── documents/                  # [Ignorado en Git] Repositorio de documentos subidos (facturas, OC, cotizaciones, backups)
 │   └── backups/                # Respaldos generados (.db Turso, .sql Cloud y .zip completos)
-├── test_invoice/               # Muestras reales de facturas del SII para pruebas del parser nativo
-│   ├── 20231226_1.pdf          # Factura electrónica emitida Folio 27
-│   ├── 20240702.pdf            # Factura electrónica emitida Folio 34
-│   ├── 20241015_1.pdf          # Factura electrónica emitida Folio 35
-│   ├── 20241015_2.pdf          # Factura electrónica emitida Folio 36
-│   ├── 20260924.pdf            # Factura electrónica emitida Folio 43
-│   └── Fe 570 77694005.pdf     # Factura exenta electrónica recibida Folio 570 (Tipo DTE 34)
+├── test_invoice/               # [Ignorado en Git] Muestras locales de facturas para pruebas del parser nativo
 │
 ├── tests/                      # Suite de Pruebas Automatizadas (Unit Tests)
 │   ├── test_ai_service.py      # Pruebas unitarias de AIService, conectividad agnóstica y parsing de facturas
@@ -110,7 +103,6 @@ py-manager-lite/
 │   ├── test_services.py        # 20 pruebas unitarias de servicios, lógica financiera y soft-delete
 │   ├── test_turso_cloud.py     # Pruebas unitarias de cifrado AES-256-GCM, salt PBKDF2 y Turso Cloud
 │   └── test_views.py           # Pruebas de instanciación e integración de vistas Flet
-
 │
 ├── docs/                       # Documentación técnica y funcional del proyecto
 │   ├── 01-scope.md             # Alcance y visión del producto
@@ -123,7 +115,8 @@ py-manager-lite/
 │   ├── 08-ai-handoff.md        # Guía de contexto para asistentes de IA
 │   └── 09-project-tree.md      # Este documento (mapa del repositorio)
 │
-├── .gitignore                  # Exclusiones de Git (entornos virtuales, DB local, caches)
+├── .gitignore                  # Exclusiones de Git (secretos, DB local, docs privados, caches, logs)
+├── .env.example                # Plantilla pública de variables de entorno (sin credenciales reales)
 ├── AGENTS.md                   # Directrices y reglas de ingeniería obligatorias del proyecto
 ├── py-manager-lite.spec        # Especificación de PyInstaller para compilar binario ejecutable
 ├── requirements.txt            # Dependencias del proyecto (flet, sqlalchemy, pypdf, etc.)
